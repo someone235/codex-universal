@@ -340,4 +340,8 @@ RUN chmod +x /opt/verify.sh \
 COPY entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 
+ENV CODEX_ENV_PYTHON_VERSION=3.14.0 \
+    CODEX_ENV_NODE_VERSION=22 \
+    CODEX_ENV_RUST_VERSION=1.92.0
+
 ENTRYPOINT  ["/opt/entrypoint.sh"]

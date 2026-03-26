@@ -33,6 +33,11 @@ if [ -n "${CODEX_ENV_NODE_VERSION}" ]; then
         nvm use --save "${CODEX_ENV_NODE_VERSION}"
         corepack enable
     fi
+
+    if ! npm list -g --depth=0 @openai/codex >/dev/null 2>&1; then
+        echo "# Installing Codex CLI"
+        npm install -g @openai/codex@latest
+    fi
 fi
 
 if [ -n "${CODEX_ENV_RUBY_VERSION}" ]; then
